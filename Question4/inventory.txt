@@ -1,0 +1,40 @@
+M1001|Paracetamol 500mg|250|50
+M1002|Amoxicillin 500mg|120|180
+M1003|Ibuprofen 400mg|175|120
+M1004|Metronidazole 500mg|90|150
+M1005|Artemether Lumefantrine 20/120mg|80|350
+M1006|Omeprazole 20mg|140|100
+M1007|Ciprofloxacin 500mg|75|220
+M1008|Azithromycin 500mg|60|450
+M1009|Diclofenac 50mg|110|90
+M1010|Cetirizine 10mg|200|75
+M1011|Loratadine 10mg|130|85
+M1012|Amlodipine 5mg|160|65
+M1013|Losartan 50mg|100|150
+M1014|Metformin 500mg|220|80
+M1015|Glibenclamide 5mg|95|70
+M1016|Atorvastatin 20mg|125|180
+M1017|Enalapril 10mg|115|95
+M1018|Furosemide 40mg|85|60
+M1019|Hydrochlorothiazide 25mg|105|55
+M1020|Salbutamol 4mg|70|90
+M1021|Prednisolone 5mg|90|110
+M1022|Dexamethasone 4mg|65|140
+M1023|Hydrocortisone 100mg|45|250
+M1024|Ferrous Sulfate 200mg|180|65
+M1025|Folic Acid 5mg|240|45
+M1026|Vitamin C 500mg|150|100
+M1027|Vitamin B Complex|130|120
+M1028|Calcium Carbonate 500mg|160|90
+M1029|Oral Rehydration Salts|300|35
+M1030|Zinc Sulfate 20mg|145|60
+M1031|Clotrimazole 1% Cream|80|150
+M1032|Miconazole 2% Cream|70|180
+M1033|Povidone Iodine 10%|55|200
+M1034|Chlorhexidine 0.5%|65|175
+M1035|Cough Syrup 100ml|90|250
+M1036|Antacid Suspension 100ml|100|180
+M1037|Lidocaine 2% Injection|40|300
+M1038|Normal Saline 0.9% 500ml|120|150
+M1039|Dextrose 5% 500ml|95|160
+M1040|Ringer's Lactate 500ml|85|170
