@@ -1,7 +1,0 @@
-ORD1023 Alice Electronics 450000
-ORD1007 Jean Furniture 1250000
-ORD1045 Eric Electronics 450000
-ORD1012 Grace Clothing 85000
-ORD1031 David Furniture 1250000
-ORD1050 Alice Electronics 450000
-ORD1020 Alice Clothing 450000
