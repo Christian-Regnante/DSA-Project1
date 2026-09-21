@@ -1,19 +1,44 @@
 # DSA First Project Assignment
 
-This repository contains four standalone C programs demonstrating sorting, linked lists, binary trees, and binary search trees. Each task includes its assignment specification, an implementation, and a DOCX document containing the required algorithm analysis.
+This repository contains four standalone C implementations for the data-structure assignments. Each task is organized in its own `QuestionN/` directory with its C source, task-specific input/output files where applicable, and algorithm-analysis document.
+
+## Repository structure
+
+```text
+Question1/
+  qsort.c
+  orders.txt
+  priority_orders.txt
+  qsort_algorithm_analysis.docx
+
+Question2/
+  lab_processor.c
+  D-linked_list_algorithm_analysis.docx
+
+Question3/
+  e-sports_tournment.c
+  tournment-BST_algorithm_analysis.docx
+
+Question4/
+  pharmarcy_inventory.c
+  inventory.txt
+  inventory-BST_algorithm_analysis.docx
+```
+
+The sample coding conventions used as a reference are documented in `.github/sample-coding-style.md`.
 
 ## Task overview
 
-| Task | Program | Main data structure or algorithm | Purpose |
+| Task | Source | Main data structure or algorithm | Main result |
 |---|---|---|---|
-| 1 | `task1.c` | Dynamic array and custom Quick Sort | Read orders, prioritize them, write sorted output, and report totals |
-| 2 | `task2.c` | Doubly linked list | Manage a laboratory sample queue with forward/backward navigation |
-| 3 | `task3.c` | Binary Search Tree | Build a tournament tree and query parent, sibling, leaf, and grandchild relationships |
-| 4 | `task4.c` | Binary Search Tree | Load medicine inventory, search by medicine code, and display sorted records |
+| 1 | `Question1/qsort.c` | Dynamic array and custom Quick Sort | Prioritized order records in `Question1/priority_orders.txt` |
+| 2 | `Question2/lab_processor.c` | Doubly linked list | Interactive laboratory sample queue |
+| 3 | `Question3/e-sports_tournment.c` | Binary Search Tree | Interactive tournament-tree relationship queries |
+| 4 | `Question4/pharmarcy_inventory.c` | Binary Search Tree | Interactive pharmacy inventory search and traversal |
 
 ## Task 1: Order prioritization
 
-`task1.c` reads orders from `orders.txt` and writes the sorted records to `priority_orders.txt`.
+`Question1/qsort.c` reads records from `Question1/orders.txt` and writes sorted records to `Question1/priority_orders.txt`.
 
 Orders are sorted by:
 
@@ -21,31 +46,31 @@ Orders are sorted by:
 2. Customer name, ascending lexicographical order
 3. Order ID, ascending lexicographical order
 
-The program uses a dynamically growing array and implements Quick Sort manually without `qsort()`. It also displays the number of valid orders processed and their total value.
+The program uses a dynamically growing array and implements Quick Sort manually without `qsort()`. It reports the number of valid orders processed and their total value.
 
-Algorithm analysis: `task1_algorithm_analysis.docx`
+Algorithm analysis: `Question1/qsort_algorithm_analysis.docx`
 
 ## Task 2: Laboratory sample queue
 
-`task2.c` is an interactive program that stores laboratory samples in a doubly linked list. Each node contains an identifier, sample type, priority, and `prev`/`next` pointers.
+`Question2/lab_processor.c` stores laboratory samples in a dynamically allocated doubly linked list. Each node contains an identifier, sample type, priority, and `prev`/`next` pointers.
 
-Available operations include:
+The interactive menu supports:
 
-- Move to the next sample
-- Move to the previous sample
-- Display the current sample
-- Add a sample to the end of the queue
-- Review the queue forward
-- Review the queue backward
-- Exit
+- Moving to the next sample
+- Moving to the previous sample
+- Displaying the current sample
+- Adding a sample to the end of the queue
+- Reviewing the queue forward
+- Reviewing the queue backward
+- Exiting safely
 
 The queue maintains a tail pointer, making end insertion `O(1)`. Traversal in either direction is `O(n)`.
 
-Algorithm analysis: `task2_algorithm_analysis.docx`
+Algorithm analysis: `Question2/D-linked_list_algorithm_analysis.docx`
 
 ## Task 3: Tournament tree
 
-`task3.c` builds an ordinary Binary Search Tree from the participant identifiers supplied in the assignment. The first identifier becomes the root; smaller identifiers are inserted to the left and larger identifiers to the right.
+`Question3/e-sports_tournment.c` builds an ordinary Binary Search Tree from the participant identifiers supplied in the assignment. The first identifier becomes the root; smaller identifiers are inserted to the left and larger identifiers to the right.
 
 The menu supports:
 
@@ -56,61 +81,52 @@ The menu supports:
 - Displaying a participant’s grandchildren
 - Handling missing identifiers and special tree relationships
 
-Insertion complexity is `O(h)`, where `h` is the tree height. This is `O(log n)` for a balanced tree and `O(n)` in the worst case for an unbalanced tree.
+Insertion complexity is `O(h)`, where `h` is the tree height: `O(log n)` for a balanced tree and `O(n)` in the worst case for an unbalanced tree.
 
-Note: the assignment text says there are 68 identifiers, but the provided list contains 69 values. The implementation preserves all listed values.
+The assignment text says there are 68 identifiers, but the provided list contains 69 values. The implementation preserves all listed values.
 
-Algorithm analysis: `task3_algorithm_analysis.docx`
+Algorithm analysis: `Question3/tournment-BST_algorithm_analysis.docx`
 
 ## Task 4: Pharmacy inventory
 
-`task4.c` reads medicine records from `inventory.txt` using this format:
+`Question4/pharmarcy_inventory.c` reads medicine records from `Question4/inventory.txt` using:
 
 ```text
 MedicineCode|MedicineName|Quantity|UnitPrice
 ```
 
-The records are stored in a Binary Search Tree keyed by medicine code. The program:
+The records are stored in a Binary Search Tree keyed by medicine code. The program validates records, replaces the quantity for duplicate codes, supports repeated searches, displays the complete inventory in ascending code order, and frees the tree before exit.
 
-- Validates records and skips malformed entries
-- Replaces the quantity when a duplicate medicine code is found
-- Supports repeated medicine searches
-- Displays the complete inventory in ascending medicine-code order using in-order traversal
-- Frees all dynamically allocated nodes before exit
+BST search is `O(h)`: `O(1)` in the best case, `O(log n)` for a balanced tree, and `O(n)` in the worst case. Because the supplied codes are already ascending, inserting them into an ordinary BST creates a highly skewed tree.
 
-BST search is `O(h)`: `O(1)` in the best case, `O(log n)` for a balanced tree, and `O(n)` in the worst case. Because the supplied inventory codes are already ascending, inserting them into an ordinary BST creates a highly skewed tree.
-
-Algorithm analysis: `task4_algorithm_analysis.docx`
+Algorithm analysis: `Question4/inventory-BST_algorithm_analysis.docx`
 
 ## Building and running
 
-Compile each program independently with GCC:
+Compile each program from its task directory so its relative input/output filenames resolve correctly:
 
 ```bash
-gcc -std=c11 -Wall -Wextra -pedantic task1.c -o task1
-gcc -std=c11 -Wall -Wextra -pedantic task2.c -o task2
-gcc -std=c11 -Wall -Wextra -pedantic task3.c -o task3
-gcc -std=c11 -Wall -Wextra -pedantic task4.c -o task4
+cd Question1
+gcc -std=c11 -Wall -Wextra -pedantic qsort.c -o qsort
+./qsort
 ```
-
-Run the programs from the repository root so their input files can be found:
 
 ```bash
-./task1
-./task2
-./task3
-./task4
+cd Question2
+gcc -std=c11 -Wall -Wextra -pedantic lab_processor.c -o lab_processor
+./lab_processor
 ```
 
-Task 1 expects `orders.txt` and creates `priority_orders.txt`. Task 2 and Task 3 receive their data interactively. Task 4 expects `inventory.txt` and then provides an interactive search/display menu.
+```bash
+cd Question3
+gcc -std=c11 -Wall -Wextra -pedantic e-sports_tournment.c -o e-sports_tournment
+./e-sports_tournment
+```
 
-## Assignment references
+```bash
+cd Question4
+gcc -std=c11 -Wall -Wextra -pedantic pharmarcy_inventory.c -o pharmarcy_inventory
+./pharmarcy_inventory
+```
 
-The authoritative requirements and implementation guidance are available in:
-
-- `task1_assignment.txt` and `Task1_assignment-instruction_guide.md`
-- `task2_assignment.txt` and `Task2_assignment-instruction_guide.md`
-- `task3_assignment.txt` and `Task3_assignment-instruction_guide.md`
-- `task4_assignment.txt` and `Task4_assignment-instruction_guide.md`
-
-The repository also includes `.github/sample-coding-style.md`, which records conventions observed in the supplied reference samples.
+Task 1 uses `Question1/orders.txt` and creates `Question1/priority_orders.txt`. Tasks 2 and 3 receive their data interactively. Task 4 loads `Question4/inventory.txt` and provides an interactive search/display menu.
