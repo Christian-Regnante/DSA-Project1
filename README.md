@@ -128,3 +128,5 @@ cd Question4
 gcc -std=c11 -Wall -Wextra -pedantic pharmarcy_inventory.c -o pharmarcy_inventory
 ./pharmarcy_inventory
 ```
+
+Task 1 uses `Question1/orders.txt` and creates `Question1/priority_orders.txt`. Tasks 2 and 3 receive their data interactively. Task 4 loads `Question4/inventory.txt` and provides an interactive search/display menu.
